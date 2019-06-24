@@ -12,5 +12,6 @@ class UdpListener : Thread() {
         socket.receive(packet)
         println("Received ${String(bytes)}")
         println("---------------------")
+        stopBroadcasting()
     }
 }
