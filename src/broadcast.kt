@@ -13,3 +13,7 @@ fun broadcastUdp(message: String) {
     val packet = DatagramPacket(bytes, bytes.size, InetAddress.getByName(broadcastAddress), broadcastPort)
     socket.send(packet)
 }
+
+fun closeSocket() {
+    socket.close()
+}
