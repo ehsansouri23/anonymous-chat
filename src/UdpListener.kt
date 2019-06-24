@@ -1,8 +1,10 @@
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 
+const val udpAcceptPort = 5000
+
 class UdpListener : Thread() {
-    private val socket = DatagramSocket(5000)
+    private val socket = DatagramSocket(udpAcceptPort)
     override fun run() {
         println("listening")
         val bytes = ByteArray(512)

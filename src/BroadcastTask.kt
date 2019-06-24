@@ -1,7 +1,9 @@
 import java.util.*
 
+private const val broadcastMessage = "hello to you!!"
+
 class BroadcastTask : TimerTask() {
     override fun run() {
-        broadcastUdp("hello to you!!")
+        broadcastUdp(broadcastMessage)
     }
 }
