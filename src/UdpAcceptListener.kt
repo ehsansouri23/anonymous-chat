@@ -9,7 +9,7 @@ var port = 0
 /**
  * listening for accept of broadcasted udp message
  */
-class UdpAcceptListener : Thread() {
+class UdpAcceptListener : Thread("UdpAcceptListener") {
     private val socket = DatagramSocket(udpAcceptPort)
     override fun run() {
         println("listening")
@@ -17,7 +17,7 @@ class UdpAcceptListener : Thread() {
         val packet = DatagramPacket(bytes, bytes.size)
         socket.receive(packet)
         address = packet.address
-        port = "123".toInt()//todo handle it
+        port = String(bytes, 0, packet.length).toInt()
         println("Received ${String(bytes)}")
         println("---------------------")
         stopBroadcasting()
