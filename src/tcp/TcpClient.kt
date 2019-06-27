@@ -12,7 +12,6 @@ class TcpClient(private val port: Int) : Thread("tcp.TcpClient") {
         val socket = Socket(address, port)
         while (true) {
             val out = DataOutputStream(socket.getOutputStream())
-            println("Sending tcp")
             val scanner = Scanner(System.`in`)
             val s = scanner.next()
             println("send $s")
