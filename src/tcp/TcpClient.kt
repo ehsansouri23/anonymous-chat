@@ -1,11 +1,15 @@
+package tcp
+
+import address
 import java.io.DataOutputStream
 import java.net.Socket
 import java.util.*
 
-class TcpClient : Thread("TcpClient") {
-    private val socket = Socket(address, port)
+class TcpClient(private val port: Int) : Thread("tcp.TcpClient") {
 
     override fun run() {
+        println("Connecting to $address and port $port")
+        val socket = Socket(address, port)
         while (true) {
             val out = DataOutputStream(socket.getOutputStream())
             println("Sending tcp")
