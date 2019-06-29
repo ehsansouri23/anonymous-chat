@@ -1,11 +1,9 @@
 import tcp.TcpClient
 import java.net.DatagramPacket
 import java.net.DatagramSocket
-import java.net.InetAddress
 
 const val udpAcceptPort = 5000
-lateinit var address: InetAddress
-var port = 5555 //todo put a random port
+
 
 /**
  * listening for accept of broadcasted udp message
@@ -18,7 +16,7 @@ class UdpAcceptListener : Thread("UdpAcceptListener") {
         val packet = DatagramPacket(bytes, bytes.size)
         socket.receive(packet)
         address = packet.address
-//        port = String(bytes, 0, packet.length).toInt()//todo put a random port
+        port = String(bytes, 0, packet.length).toInt()//todo put a random port
         println("---------------------")
         stopBroadcasting()
         sleep(2000)

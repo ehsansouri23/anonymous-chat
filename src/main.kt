@@ -1,6 +1,9 @@
+import java.net.InetAddress
 import java.util.*
 
 val timer = Timer()
+lateinit var address: InetAddress
+var port = 0
 
 fun main(args: Array<String>) {
     if (args.contains("-b")) {

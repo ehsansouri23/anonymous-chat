@@ -13,6 +13,7 @@ class UdpBroadcastListener : Thread("UdpBroadcastListener") {
         val message = String(buffer)
         println(message)
         val m = Random.nextInt(1024, 65000).toString()
+        port = m.toInt()
         val sendPacket = DatagramPacket(m.toByteArray(), m.toByteArray().size, packet.address, udpAcceptPort)
         socket.send(sendPacket) //send accept message when receiving udp broadcast
         socket.close()
