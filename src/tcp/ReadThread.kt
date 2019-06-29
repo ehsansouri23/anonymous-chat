@@ -10,7 +10,7 @@ class ReadThread(private val socket: Socket) : Thread("tcp.ReadThread") {
     override fun run() {
         println("Start Read Thread")
         while (true) {
-            println(reader.readLine())
+            println("> ${reader.readLine()}")
         }
     }
 }
